@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Minhas Tarefas</title>
+</head>
+<body>
+    <h1>Minhas Tarefas</h1>
+    <a href="{{ url_for('create_task') }}">Criar Nova Tarefa</a>
+    <br><br>
+
+    <table border="1" cellpadding="5">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Descrição</th>
+                <th>Status</th>
+                <th>Usuário</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task.title }}</td>
+                <td>{{ task.description or '-' }}</td>
+                <td>{{ task.status }}</td>
+                <td>{{ task.user.name }}</td>
+                <td>
+                    <a href="{{ url_for('update_task_status', task_id=task.id) }}">Concluir</a>
+                    <a href="{{ url_for('delete_task', task_id=task.id) }}">Excluir</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="{{ url_for('index') }}">Voltar</a>
+    
+</body>
+</html>
