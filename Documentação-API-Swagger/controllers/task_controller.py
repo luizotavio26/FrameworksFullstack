@@ -36,7 +36,16 @@ class TaskController:
         """
 
         tasks = Task.query.all()
-        return jsonify(tasks), 200
+        result = []
+        for task in tasks:
+            result.append({
+                'id': task.id,
+                'title': task.title,
+                'description':task.description,
+                'status': task.status,
+                'user_id': task.user_id
+            })
+        return jsonify(result), 200
 
     @staticmethod
     def create_task():
@@ -44,7 +53,7 @@ class TaskController:
         Criar uma nova tarefa
         Cria uma nova tarefa com base nos dados fornecidos.
         ---
-        tags:
+        tags: 
           - Tasks
         parameters:
           - name: body
@@ -69,10 +78,11 @@ class TaskController:
           201:
             description: Tarefa criada com sucesso.
         """
+        data = request.get_json()
 
-        title = request.form['title']
-        description = request.form['description']
-        user_id = request.form['user_id']
+        title = data.get('title')
+        description = data.get('description')
+        user_id = data.get('user_id')
 
         if title and user_id: 
             new_task = Task(
@@ -91,7 +101,7 @@ class TaskController:
         Atualizar uma tarefa
         Atualiza o status de uma tarefa existente.
         ---
-        tags:
+        tags: 
           - Tasks
         parameters:
           - name: task_id
@@ -132,7 +142,7 @@ class TaskController:
         Excluir uma tarefa
         Remove uma tarefa existente com base no ID.
         ---
-        tags:
+        tags: 
           - Tasks
         parameters:
           - name: task_id

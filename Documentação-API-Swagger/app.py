@@ -19,8 +19,8 @@ Swagger(app)
 with app.app_context():
     db.create_all()
 
-app.add_url_rule('/', 'index', UserController.index)
-app.add_url_rule('/contact', 'contact', UserController.contact, methods=['GET', 'POST'])
+app.add_url_rule('/users', 'list_users', UserController.list_users, methods=['GET'])
+app.add_url_rule('/users', 'create_user', UserController.create_user, methods=['POST'])
 
 app.add_url_rule('/tasks', 'list_tasks', TaskController.list_tasks, methods=['GET'])
 app.add_url_rule('/tasks', 'create_task', TaskController.create_task, methods=['POST'])
