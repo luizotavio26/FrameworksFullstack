@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1 align="center">API Gerenciador de Tarefas</h1>
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python Version">
@@ -66,3 +67,14 @@ Luiz Otávio Santos Silva
 Murillo Rodrigues Santos Pereira
 
 Uatila dos Santos Silva
+=======
+# FrameworksFullstack
+
+Grupo 5
+
+Ana Beatriz Silva Santos
+João Pedro Silva Antunes
+Luiz Otávio Santos Silva
+Murillo Rodrigues Santos Pereira
+Uatila dos Santos Silva
+>>>>>>> 23ffcec71adfed1363ab4763f648500ba0ea7b9e
