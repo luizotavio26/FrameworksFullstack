@@ -57,7 +57,7 @@ Para rodar a aplicação, certifique-se de que você tem as seguintes dependênc
 
 ---
 
-## 👩‍💻 Autores
+## 👩‍💻 Autores - Grupo 5
 
 Ana Beatriz Silva Santos
 
@@ -66,14 +66,4 @@ Luiz Otávio Santos Silva
 Murillo Rodrigues Santos Pereira
 
 Uatila dos Santos Silva
-=======
-# FrameworksFullstack
 
-Grupo 5
-
-Ana Beatriz Silva Santos
-João Pedro Silva Antunes
-Luiz Otávio Santos Silva
-Murillo Rodrigues Santos Pereira
-Uatila dos Santos Silva
->>>>>>> 23ffcec71adfed1363ab4763f648500ba0ea7b9e
