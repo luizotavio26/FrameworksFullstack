@@ -1,0 +1,35 @@
+import os
+from flask import Flask, redirect
+from config import Config 
+
+from controllers.user_controller import UserController
+from controllers.task_controller import TaskController
+
+from models.user import db
+
+from flasgger import Swagger
+
+app = Flask(__name__, template_folder=os.path.join('view', 'templates'))
+app.config.from_object(Config)
+
+db.init_app(app)
+
+Swagger(app)
+
+with app.app_context():
+    db.create_all()
+
+app.add_url_rule('/users', 'list_users', UserController.list_users, methods=['GET'])
+app.add_url_rule('/users', 'create_user', UserController.create_user, methods=['POST'])
+
+app.add_url_rule('/tasks', 'list_tasks', TaskController.list_tasks, methods=['GET'])
+app.add_url_rule('/tasks', 'create_task', TaskController.create_task, methods=['POST'])
+app.add_url_rule('/tasks/<int:task_id>', 'update_task_status', TaskController.update_task_status, methods=['PUT'])
+app.add_url_rule('/tasks/<int:task_id>', 'delete_task', TaskController.delete_task, methods=['DELETE'])
+
+@app.route('/', methods=['GET'])
+def home():
+    return redirect('/apidocs/')
+
+if __name__ == '__main__':
+    app.run(debug=True, port=5002)
